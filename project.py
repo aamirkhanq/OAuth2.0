@@ -55,6 +55,7 @@ def gconnect():
     if result.get('error') is not None:
         response = make_response(json.dumps(result.get('error')), 500)
         response.headers['Content-Type'] = 'application/json'
+        return response
     gplus_id = credentials.id_token['sub']
     if result['user_id'] != gplus_id:
         response = make_response(
@@ -73,6 +74,7 @@ def gconnect():
         response = make_response(
             json.dumps('Current user is already connected.'), 200)
         response.headers['Content-Type'] = 'application/json'
+        return response
     login_session['access_token'] = credentials.access_token
     login_session['gplus_id'] = gplus_id
     userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
