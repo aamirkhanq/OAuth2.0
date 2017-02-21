@@ -11,7 +11,7 @@ from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 import httplib2
 import json
-from flask import make_session
+from flask import make_response
 import requests
 
 CLIENT_ID = json.loads(
