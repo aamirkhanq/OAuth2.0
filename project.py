@@ -29,7 +29,7 @@ def showLogin():
                                   string.digits)
                     for x in range(32))
     login_session['state'] = state
-    return "The current state is %s" %login_session['state']
+    return render_template('login.html', STATE = state)
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
